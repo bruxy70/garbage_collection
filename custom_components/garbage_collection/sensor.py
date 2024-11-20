@@ -173,8 +173,8 @@ class GarbageCollection(RestoreEntity):
                     const.CALENDAR_PLATFORM
                 ] = EntitiesCalendarData(self.hass)
                 _LOGGER.debug("Creating garbage_collection calendar")
-                await self.hass.config_entries.async_forward_entry_setup(
-                    self.config_entry, const.CALENDAR_PLATFORM
+                await self.hass.config_entries.async_forward_entry_setups(
+                    self.config_entry, [const.CALENDAR_PLATFORM]
                 )
 
             self.hass.data[const.DOMAIN][const.CALENDAR_PLATFORM].add_entity(

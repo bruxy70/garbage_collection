@@ -227,8 +227,8 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     config_entry.add_update_listener(update_listener)
     # Add sensor
     hass.async_create_task(
-        hass.config_entries.async_forward_entry_setup(
-            config_entry, const.SENSOR_PLATFORM
+        hass.config_entries.async_forward_entry_setups(
+            config_entry, [const.SENSOR_PLATFORM]
         )
     )
     return True
